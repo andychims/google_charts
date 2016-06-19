@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Pizza', 'Dine in', 'Delivery'],
+          ['Sal\'s Supreme', 40, 50],
+          ['Pepperoni Perfection', 62, 30],
+          ['Hawaiian Hula', 20, 7],
+          ['Positivelyl Pesto', 5, 2],
+          ['Very Veggie', 6, 3]
+        ]);
+
+        var options = {
+          backgroundColor: {stroke: '#000', strokeWidth: 4, fill: '#bbb'},
+          hAxis: {
+            title: 'Number of Pizzas Sold',
+            titleTextStyle: {fontSize: 16},
+            gridlines: {count: 8}
+          },
+          series: [{color: "#f81"}],
+          title: 'Most Popular Pies',
+          titleTextStyle: {fontSize: 18},
+          toolTip: {showColorCode: true},
+          vAxis: {title: 'Pizza Type', titleTextStyle: {fontSize: 16}}
+        };
+
+        var chart = new google.visualization.BarChart(document.getElementById('chart'));
+        chart.draw(data,options);
+
+      };
+
+      google.load('visualization', '1.0', {
+        'packages': ['corechart'],
+        'callback': drawChart
+      });
+
+
+    </script>
+  </head>
+
+  <body>
+    <div id="chart" style="width: 900px; height: 500px;">
+      
+    </div>
+
+  </body>
+
+</html>
